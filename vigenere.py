@@ -49,3 +49,12 @@ def vigenere_encryption(message, keyword):
     else:
         print("Cannot encrypt characters outside of the alphabet.")
 
+#ASKING THE USER FOR THE MESSAGE TO BE ENCRYPTED AND THE KEYWORD
+message=input("Input Message here:")
+keyword=input("Input Keyword Here:")
+encrypted_message=vigenere_encryption(message,keyword)
+
+#Prevents the program from outputting "None" after the "Cannot encrypt characters outside of the alphabet." statement
+if encrypted_message==None:
+    sys.exit()
+
