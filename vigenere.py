@@ -11,3 +11,18 @@ print("\033[;33;1;3mಠ\033[10m" * 65)
 user_name = input(f"\n\033[;45;1;3mWhat is your name? \033[0m")
 print(f"\n\033[;1;3mNice to meet you, \033[;100;1;3m" + user_name +"\033[;1;3m!\033[0m")
 print("\033[0m\033[;35;1;3mKindly input the text that you want to encrypt!\033[0m")
+
+#Create a python program using Vigenère Cipher to encrypt the message
+def vigenere_encryption(message, keyword):
+    if message.isalpha():
+        #Turns the message and the keyword into uppercase format
+        message_uppercase=message.upper()
+        keyword_uppercase=keyword.upper()
+
+        #Removes spaces in the message and the keyword
+        message_stripped = message_uppercase.replace(" ","")
+        keyword_stripped = keyword_uppercase.replace(" ", "")
+
+        #Generating the keyword with the same number of letters with the message
+        keyword_match=keyword_stripped*(len(message_stripped)//len(keyword_stripped)+1)
+        keyword_match=keyword_match[:len(message_stripped)]
