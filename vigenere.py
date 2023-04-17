@@ -58,3 +58,8 @@ encrypted_message=vigenere_encryption(message,keyword)
 if encrypted_message==None:
     sys.exit()
 
+else:
+    print(encrypted_message)
+
+print("")
+print("\033[;33;1;3mJob well done, it's nice to meet you!\033[0m".center(84, "~"))
