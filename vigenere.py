@@ -26,3 +26,26 @@ def vigenere_encryption(message, keyword):
         #Generating the keyword with the same number of letters with the message
         keyword_match=keyword_stripped*(len(message_stripped)//len(keyword_stripped)+1)
         keyword_match=keyword_match[:len(message_stripped)]
+
+        #Encryption of the message
+        encrypted_message=""
+        for i in range(len(message_stripped)):
+            #Checks if the message is an alphabet
+            if message_stripped[i].isalpha():
+                #Converts the alphabets of the message into numeric equivalent
+                message_numbered=ord(message_stripped[i])-65
+                #Converts the key into numeric equivalents
+                keyword_numbered=ord(keyword_match[i])-65
+
+                #Encrypts the message with respect to the modulo 26
+                encrypted_numbers=(message_numbered+keyword_numbered) %26
+
+                #Matches the new numbers to their new equivalent alphabet
+                encrypted_letters=chr(encrypted_numbers+65)
+
+                #Stores the encrypted letters into the variable outside the for loop
+                encrypted_message+=encrypted_letters
+        return encrypted_message
+    else:
+        print("Cannot encrypt characters outside of the alphabet.")
+
